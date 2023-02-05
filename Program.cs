@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using TEMA_MEDII_ROCA_RARES_GEORGE.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<TEMA_MEDII_ROCA_RARES_GEORGEContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TEMA_MEDII_ROCA_RARES_GEORGEContext") ?? throw new InvalidOperationException("Connection string 'TEMA_MEDII_ROCA_RARES_GEORGEContext' not found.")));
 
 var app = builder.Build();
 

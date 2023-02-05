@@ -1,0 +1,186 @@
+﻿@page
+@model TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceDetails.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].Service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].ServiceTypeIDs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].PaymentCash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].PaymentCard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].WaitingZone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].LuniStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].LuniEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].LuniClosed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].MartiStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].MartiEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].MartiClosed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].MiercuriStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].MiercuriEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].MiercuriClosed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].JoiStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].JoiEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].JoiClosed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].VineriStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].VineriEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].VineriClosed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].SambataStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].SambataEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].SambataClosed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].DuminicaStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].DuminicaEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].DuminicaClosed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ServiceDetail) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceTypeIDs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentCash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentCard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaitingZone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LuniStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LuniEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LuniClosed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MartiStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MartiEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MartiClosed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiercuriStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiercuriEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiercuriClosed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoiStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoiEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoiClosed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VineriStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VineriEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VineriClosed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SambataStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SambataEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SambataClosed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DuminicaStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DuminicaEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DuminicaClosed)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
