@@ -21,21 +21,21 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
         }
 
         [BindProperty]
-        public ServicesType ServicesType { get; set; } = default!;
+        public ServiceType ServiceType { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.ServicesType == null)
+            if (id == null || _context.ServiceType == null)
             {
                 return NotFound();
             }
 
-            var servicestype =  await _context.ServicesType.FirstOrDefaultAsync(m => m.ID == id);
-            if (servicestype == null)
+            var servicetype =  await _context.ServiceType.FirstOrDefaultAsync(m => m.ID == id);
+            if (servicetype == null)
             {
                 return NotFound();
             }
-            ServicesType = servicestype;
+            ServiceType = servicetype;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
                 return Page();
             }
 
-            _context.Attach(ServicesType).State = EntityState.Modified;
+            _context.Attach(ServiceType).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ServicesTypeExists(ServicesType.ID))
+                if (!ServiceTypeExists(ServiceType.ID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
             return RedirectToPage("./Index");
         }
 
-        private bool ServicesTypeExists(int id)
+        private bool ServiceTypeExists(int id)
         {
-          return _context.ServicesType.Any(e => e.ID == id);
+          return _context.ServiceType.Any(e => e.ID == id);
         }
     }
 }

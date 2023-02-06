@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].Service)
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].Services)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].ServiceTypeIDs)
+                @Html.DisplayNameFor(model => model.ServiceDetail[0].ServiceTypeID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ServiceDetail[0].PaymentCash)
@@ -29,67 +29,25 @@
                 @Html.DisplayNameFor(model => model.ServiceDetail[0].WaitingZone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].LuniStartTime)
+                Luni
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].LuniEndTime)
+                Marți
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].LuniClosed)
+                Miercuri
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].MartiStartTime)
+                Joi
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].MartiEndTime)
+                Vineri
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].MartiClosed)
+                Sâmbătă
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].MiercuriStartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].MiercuriEndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].MiercuriClosed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].JoiStartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].JoiEndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].JoiClosed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].VineriStartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].VineriEndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].VineriClosed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].SambataStartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].SambataEndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].SambataClosed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].DuminicaStartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].DuminicaEndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceDetail[0].DuminicaClosed)
+                Duminică
             </th>
             <th></th>
         </tr>
@@ -98,82 +56,110 @@
 @foreach (var item in Model.ServiceDetail) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Service.Location)
+                @Html.DisplayFor(modelItem => item.Services.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ServiceTypeIDs)
+                @Html.DisplayFor(modelItem => item.ServiceTypes.Type)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PaymentCash)
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.PaymentCard)
+                    @if (item.PaymentCash && item.PaymentCash.Equals(true))
+                    {
+                        <p>Nu</p>
+                    }
+                    else
+                    {
+                        <p>Da</p>
+                    }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WaitingZone)
+                    @if (item.PaymentCard && item.PaymentCard.Equals(true))
+                    {
+                        <p>Nu</p>
+                    }
+                    else
+                    {
+                        <p>Da</p>
+                    }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LuniStartTime)
+                    @if (item.WaitingZone && item.WaitingZone.Equals(true))
+                    {
+                        <p>Nu</p>
+                    }
+                    else
+                    {
+                        <p>Da</p>
+                    }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LuniEndTime)
+                    @if (item.MartiClosed && item.MartiClosed.Equals(true))
+                    {
+                        <p>Închis</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.MartiStartTime) @Html.DisplayFor(modelItem => item.MartiEndTime)
+                    }
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.LuniClosed)
+                    @if (item.MiercuriClosed && item.MiercuriClosed.Equals(true))
+                    {
+                        <p>Închis</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.MiercuriStartTime) @Html.DisplayFor(modelItem => item.MiercuriEndTime)
+                    }
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.MartiStartTime)
+                    @if (item.JoiClosed && item.JoiClosed.Equals(true))
+                    {
+                        <p>Închis</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.JoiStartTime) @Html.DisplayFor(modelItem => item.JoiEndTime)
+                    }
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.MartiEndTime)
+                    @if (item.VineriClosed && item.VineriClosed.Equals(true))
+                    {
+                        <p>Închis</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.VineriStartTime) @Html.DisplayFor(modelItem => item.VineriEndTime)
+                    }
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.MartiClosed)
+                    @if (item.SambataClosed && item.SambataClosed.Equals(true))
+                    {
+                        <p>Închis</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.SambataStartTime) @Html.DisplayFor(modelItem => item.SambataEndTime)
+                    }
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MiercuriStartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MiercuriEndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MiercuriClosed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JoiStartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JoiEndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JoiClosed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VineriStartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VineriEndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VineriClosed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SambataStartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SambataEndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SambataClosed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DuminicaStartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DuminicaEndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DuminicaClosed)
+
+
+             <td>
+                    @if (item.DuminicaClosed && item.DuminicaClosed.Equals(true))
+                    {
+                        <p>Închis</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.DuminicaStartTime) @Html.DisplayFor(modelItem => item.DuminicaEndTime)
+                    }
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

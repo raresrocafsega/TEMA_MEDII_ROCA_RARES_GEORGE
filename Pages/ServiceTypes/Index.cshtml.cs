@@ -19,13 +19,13 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
             _context = context;
         }
 
-        public IList<ServicesType> ServicesType { get;set; } = default!;
+        public IList<ServiceType> ServiceType { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.ServicesType != null)
+            if (_context.ServiceType != null)
             {
-                ServicesType = await _context.ServicesType.ToListAsync();
+                ServiceType = await _context.ServiceType.ToListAsync();
             }
         }
     }

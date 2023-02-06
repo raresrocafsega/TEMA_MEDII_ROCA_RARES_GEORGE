@@ -14,13 +14,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ServicesType[0].Type)
+                @Html.DisplayNameFor(model => model.ServiceType[0].Type)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ServicesType) {
+@foreach (var item in Model.ServiceType) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Type)

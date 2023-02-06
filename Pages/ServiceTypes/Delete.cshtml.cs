@@ -20,40 +20,40 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
         }
 
         [BindProperty]
-      public ServicesType ServicesType { get; set; }
+      public ServiceType ServiceType { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.ServicesType == null)
+            if (id == null || _context.ServiceType == null)
             {
                 return NotFound();
             }
 
-            var servicestype = await _context.ServicesType.FirstOrDefaultAsync(m => m.ID == id);
+            var servicetype = await _context.ServiceType.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (servicestype == null)
+            if (servicetype == null)
             {
                 return NotFound();
             }
             else 
             {
-                ServicesType = servicestype;
+                ServiceType = servicetype;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.ServicesType == null)
+            if (id == null || _context.ServiceType == null)
             {
                 return NotFound();
             }
-            var servicestype = await _context.ServicesType.FindAsync(id);
+            var servicetype = await _context.ServiceType.FindAsync(id);
 
-            if (servicestype != null)
+            if (servicetype != null)
             {
-                ServicesType = servicestype;
-                _context.ServicesType.Remove(ServicesType);
+                ServiceType = servicetype;
+                _context.ServiceType.Remove(ServiceType);
                 await _context.SaveChangesAsync();
             }
 

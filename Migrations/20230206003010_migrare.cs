@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class migrare : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,7 +24,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ServicesType",
+                name: "ServiceType",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
@@ -33,7 +33,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ServicesType", x => x.ID);
+                    table.PrimaryKey("PK_ServiceType", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,9 +64,8 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ServiceID = table.Column<int>(type: "int", nullable: false),
-                    ServiceTypeIDs = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ServicesTypeID = table.Column<int>(type: "int", nullable: false),
+                    ServiceID = table.Column<int>(type: "int", nullable: true),
+                    ServiceTypeID = table.Column<int>(type: "int", nullable: true),
                     PaymentCash = table.Column<bool>(type: "bit", nullable: false),
                     PaymentCard = table.Column<bool>(type: "bit", nullable: false),
                     WaitingZone = table.Column<bool>(type: "bit", nullable: false),
@@ -99,14 +98,12 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
                         name: "FK_ServiceDetail_Service_ServiceID",
                         column: x => x.ServiceID,
                         principalTable: "Service",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_ServiceDetail_ServicesType_ServicesTypeID",
-                        column: x => x.ServicesTypeID,
-                        principalTable: "ServicesType",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_ServiceDetail_ServiceType_ServiceTypeID",
+                        column: x => x.ServiceTypeID,
+                        principalTable: "ServiceType",
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateIndex(
@@ -120,9 +117,9 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
                 column: "ServiceID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ServiceDetail_ServicesTypeID",
+                name: "IX_ServiceDetail_ServiceTypeID",
                 table: "ServiceDetail",
-                column: "ServicesTypeID");
+                column: "ServiceTypeID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -137,7 +134,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
                 name: "Service");
 
             migrationBuilder.DropTable(
-                name: "ServicesType");
+                name: "ServiceType");
         }
     }
 }

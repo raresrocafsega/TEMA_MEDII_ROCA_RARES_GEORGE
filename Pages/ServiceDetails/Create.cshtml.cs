@@ -22,9 +22,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceDetails
         public IActionResult OnGet()
         {
             ViewData["ServiceID"] = new SelectList(_context.Service, "ID", "Name");
-            List<ServicesType> servicesList = _context.ServicesType.ToList();
-            ViewData["ServiceTypeIDs"] = new SelectList(servicesList, "ID", "Type");
-           // ViewData["ServiceTypeIDs"] = new SelectList(_context.ServicesType, "ID", "Name");
+            ViewData["ServiceTypeID"] = new SelectList(_context.ServiceType, "ID", "Type");
             return Page();
         }
 
@@ -35,10 +33,11 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceDetails
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+
           if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+          {
+            return Page();
+          }
 
             _context.ServiceDetail.Add(ServiceDetail);
             await _context.SaveChangesAsync();

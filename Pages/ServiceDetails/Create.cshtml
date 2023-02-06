@@ -10,142 +10,187 @@
 <h4>ServiceDetail</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
+        <form method="post" style="width:100%;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.ServiceID" class="control-label"></label>
-                <select asp-for="ServiceDetail.ServiceID" class ="form-control" asp-items="ViewBag.ServiceID"></select>
+
+        <div class="col-12">
+            <div style="display:flex;">
+                <div class="form-group form-check" style="margin-right:30px;">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.PaymentCash" /> @Html.DisplayNameFor(model => model.ServiceDetail.PaymentCash)
+                    </label>
+                </div>
+                <div class="form-group form-check" style="margin-right:30px;">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.PaymentCard" /> @Html.DisplayNameFor(model => model.ServiceDetail.PaymentCard)
+                    </label>
+                </div>
+                <div class="form-group form-check" style="margin-right:30px;">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.WaitingZone" /> @Html.DisplayNameFor(model => model.ServiceDetail.WaitingZone)
+                    </label>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.ServiceTypeIDs" class="control-label"></label>
-                <select multiple asp-for="ServiceDetail.ServiceTypeIDs" class ="form-control" asp-items="ViewBag.ServiceTypeIDs"></select>
+        </div>
+
+        <div class="col-12">
+            <div class="row" style="align-items:end;">
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.ServiceID" class="control-label"></label>
+                    <select asp-for="ServiceDetail.ServiceID" class="form-control" asp-items="ViewBag.ServiceID"></select>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.ServiceTypeID" class="control-label"></label>
+                    <select asp-for="ServiceDetail.ServiceTypeID" class="form-control" asp-items="ViewBag.ServiceTypeID"></select>
+                </div>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.PaymentCash" /> @Html.DisplayNameFor(model => model.ServiceDetail.PaymentCash)
-                </label>
+        </div>
+
+        <div class="col-12">
+            <div class="row" style="align-items:end;">
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.LuniStartTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.LuniStartTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.LuniStartTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.LuniEndTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.LuniEndTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.LuniEndTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.LuniClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.LuniClosed)
+                    </label>
+                </div>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.PaymentCard" /> @Html.DisplayNameFor(model => model.ServiceDetail.PaymentCard)
-                </label>
+        </div>
+
+        <div class="col-12">
+            <div class="row" style="align-items:end;">
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.MartiStartTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.MartiStartTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.MartiStartTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.MartiEndTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.MartiEndTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.MartiEndTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.MartiClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.MartiClosed)
+                    </label>
+                </div>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.WaitingZone" /> @Html.DisplayNameFor(model => model.ServiceDetail.WaitingZone)
-                </label>
+        </div>
+
+        <div class="col-12">
+            <div class="row" style="align-items:end;">
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.MiercuriStartTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.MiercuriStartTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.MiercuriStartTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.MiercuriEndTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.MiercuriEndTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.MiercuriEndTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.MiercuriClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.MiercuriClosed)
+                    </label>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.LuniStartTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.LuniStartTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.LuniStartTime" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <div class="row" style="align-items:end;">
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.JoiStartTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.JoiStartTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.JoiStartTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.JoiEndTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.JoiEndTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.JoiEndTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.JoiClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.JoiClosed)
+                    </label>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.LuniEndTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.LuniEndTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.LuniEndTime" class="text-danger"></span>
+        </div>
+
+
+        <div class="col-12">
+            <div class="row" style="align-items:end;">
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.VineriStartTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.VineriStartTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.VineriStartTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.VineriEndTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.VineriEndTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.VineriEndTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.VineriClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.VineriClosed)
+                    </label>
+                </div>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.LuniClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.LuniClosed)
-                </label>
+        </div>
+
+        <div class="col-12">
+            <div class="row" style="align-items:end;">
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.SambataStartTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.SambataStartTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.SambataStartTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.SambataEndTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.SambataEndTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.SambataEndTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.SambataClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.SambataClosed)
+                    </label>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.MartiStartTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.MartiStartTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.MartiStartTime" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <div class="row" style="align-items:end;">
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.DuminicaStartTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.DuminicaStartTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.DuminicaStartTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ServiceDetail.DuminicaEndTime" class="control-label"></label>
+                    <input asp-for="ServiceDetail.DuminicaEndTime" class="form-control" />
+                    <span asp-validation-for="ServiceDetail.DuminicaEndTime" class="text-danger"></span>
+                </div>
+                <div class="col-4 form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ServiceDetail.DuminicaClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.DuminicaClosed)
+                    </label>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.MartiEndTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.MartiEndTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.MartiEndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.MartiClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.MartiClosed)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.MiercuriStartTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.MiercuriStartTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.MiercuriStartTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.MiercuriEndTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.MiercuriEndTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.MiercuriEndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.MiercuriClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.MiercuriClosed)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.JoiStartTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.JoiStartTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.JoiStartTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.JoiEndTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.JoiEndTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.JoiEndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.JoiClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.JoiClosed)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.VineriStartTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.VineriStartTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.VineriStartTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.VineriEndTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.VineriEndTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.VineriEndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.VineriClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.VineriClosed)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.SambataStartTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.SambataStartTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.SambataStartTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.SambataEndTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.SambataEndTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.SambataEndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.SambataClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.SambataClosed)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.DuminicaStartTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.DuminicaStartTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.DuminicaStartTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceDetail.DuminicaEndTime" class="control-label"></label>
-                <input asp-for="ServiceDetail.DuminicaEndTime" class="form-control" />
-                <span asp-validation-for="ServiceDetail.DuminicaEndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ServiceDetail.DuminicaClosed" /> @Html.DisplayNameFor(model => model.ServiceDetail.DuminicaClosed)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
         </form>
-    </div>
 </div>
 
 <div>
@@ -154,4 +199,26 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+    $(function () {
+
+            $('input[type="checkbox"]').click(function () {
+                var isChecked = this.checked == true;
+                var parent = this.parentElement.parentElement.parentElement;
+                    $.each(parent.children, function (key, value) {
+                        $.each(this.children, function (key, value) {
+                         if (this.nodeName == "INPUT" && isChecked) {
+                             this.disabled = true;
+                             this.value = "";
+                         } else {
+                             this.disabled = false;
+                         }
+                    });
+                });
+            });
+
+    });
+    </script>
+
 }

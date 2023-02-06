@@ -16,7 +16,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Data
 
         public DbSet<TEMA_MEDII_ROCA_RARES_GEORGE.Models.Service> Service { get; set; } = default!;
 
-        public DbSet<TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServicesType> ServicesType { get; set; }
+        public DbSet<TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServiceType> ServiceType { get; set; }
 
         public DbSet<TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServiceDetail> ServiceDetail { get; set; }
     }

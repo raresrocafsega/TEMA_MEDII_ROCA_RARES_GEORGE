@@ -26,7 +26,9 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceDetails
             if (_context.ServiceDetail != null)
             {
                 ServiceDetail = await _context.ServiceDetail
-                .Include(s => s.Service).ToListAsync();
+                .Include(s => s.Services)
+                .Include(s => s.ServiceTypes)
+                .ToListAsync();
             }
         }
     }

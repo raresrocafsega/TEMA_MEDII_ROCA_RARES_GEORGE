@@ -142,14 +142,9 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("ServiceID")
-                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("ServiceTypeIDs")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ServicesTypeID")
+                    b.Property<int?>("ServiceTypeID")
                         .HasColumnType("int");
 
                     b.Property<bool>("VineriClosed")
@@ -168,12 +163,12 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
 
                     b.HasIndex("ServiceID");
 
-                    b.HasIndex("ServicesTypeID");
+                    b.HasIndex("ServiceTypeID");
 
                     b.ToTable("ServiceDetail");
                 });
 
-            modelBuilder.Entity("TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServicesType", b =>
+            modelBuilder.Entity("TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServiceType", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -187,7 +182,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("ServicesType");
+                    b.ToTable("ServiceType");
                 });
 
             modelBuilder.Entity("TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServiceAppointment", b =>
@@ -201,21 +196,17 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
 
             modelBuilder.Entity("TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServiceDetail", b =>
                 {
-                    b.HasOne("TEMA_MEDII_ROCA_RARES_GEORGE.Models.Service", "Service")
+                    b.HasOne("TEMA_MEDII_ROCA_RARES_GEORGE.Models.Service", "Services")
                         .WithMany("ServiceDetails")
-                        .HasForeignKey("ServiceID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ServiceID");
 
-                    b.HasOne("TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServicesType", "ServicesType")
-                        .WithMany("ServiceDetail")
-                        .HasForeignKey("ServicesTypeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServiceType", "ServiceTypes")
+                        .WithMany("ServiceDetails")
+                        .HasForeignKey("ServiceTypeID");
 
-                    b.Navigation("Service");
+                    b.Navigation("ServiceTypes");
 
-                    b.Navigation("ServicesType");
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("TEMA_MEDII_ROCA_RARES_GEORGE.Models.Service", b =>
@@ -225,9 +216,9 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Migrations
                     b.Navigation("ServiceDetails");
                 });
 
-            modelBuilder.Entity("TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServicesType", b =>
+            modelBuilder.Entity("TEMA_MEDII_ROCA_RARES_GEORGE.Models.ServiceType", b =>
                 {
-                    b.Navigation("ServiceDetail");
+                    b.Navigation("ServiceDetails");
                 });
 #pragma warning restore 612, 618
         }

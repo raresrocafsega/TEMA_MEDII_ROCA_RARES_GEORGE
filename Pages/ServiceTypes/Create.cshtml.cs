@@ -25,7 +25,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
         }
 
         [BindProperty]
-        public ServicesType ServicesType { get; set; }
+        public ServiceType ServiceType { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -36,7 +36,7 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
                 return Page();
             }
 
-            _context.ServicesType.Add(ServicesType);
+            _context.ServiceType.Add(ServiceType);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

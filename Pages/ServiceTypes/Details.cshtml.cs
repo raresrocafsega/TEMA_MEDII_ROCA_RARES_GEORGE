@@ -19,23 +19,23 @@ namespace TEMA_MEDII_ROCA_RARES_GEORGE.Pages.ServiceTypes
             _context = context;
         }
 
-      public ServicesType ServicesType { get; set; }
+      public ServiceType ServiceType { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.ServicesType == null)
+            if (id == null || _context.ServiceType == null)
             {
                 return NotFound();
             }
 
-            var servicestype = await _context.ServicesType.FirstOrDefaultAsync(m => m.ID == id);
-            if (servicestype == null)
+            var servicetype = await _context.ServiceType.FirstOrDefaultAsync(m => m.ID == id);
+            if (servicetype == null)
             {
                 return NotFound();
             }
             else 
             {
-                ServicesType = servicestype;
+                ServiceType = servicetype;
             }
             return Page();
         }
